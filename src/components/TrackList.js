@@ -1,35 +1,24 @@
-const tracks = [
-  "The Small Things",
-  "Without Your Love",
-  "Therapy",
-  "Fighters",
-  "Way Up",
-  "Waiting",
-  "Dreaming",
-  "Tattoo",
-  "Out for the Night",
-  "Overdue",
-  "Say It",
-  "Here to Stay",
-];
+import { IoMdPlay } from "react-icons/io";
 
 export default function TrackList() {
+  const tracks = [
+    { name: "Nofy", duration: "3:45" },
+    { name: "Mandalo", duration: "4:12" },
+    { name: "Fitiavana", duration: "2:58" },
+    { name: "Masonao", duration: "3:30" },
+    { name: "Tsiky", duration: "5:20" },
+  ];
+
   return (
-    <section className="py-10">
-      <h3 className="text-2xl font-bold mb-6">Track List</h3>
-      <ul className="space-y-2">
-        {tracks.map((track, index) => (
-          <li
-            key={index}
-            className="flex justify-between border-b border-gray-700 py-2"
-          >
-            <span>
-              {index + 1}. {track}
-            </span>
-            <span className="text-sm text-gray-400">3:00</span>
-          </li>
-        ))}
-      </ul>
-    </section>
+    <div className="space-y-2">
+      {tracks.map((track, index) => (
+        <div key={index} className="flex items-center text-white">
+          <IoMdPlay className="text-green-500 mx-2" />
+          <span className="w-20 text-gray-400">Track {index + 1}</span>
+          <span className="flex-grow">{track.name}</span>
+          <span className="text-gray-400">{track.duration}</span>
+        </div>
+      ))}
+    </div>
   );
 }

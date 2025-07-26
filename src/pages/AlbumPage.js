@@ -7,7 +7,7 @@ import Footer from "../components/Footer";
 
 export default function AlbumPage() {
   return (
-    <div className="bg-black text-white font-sans">
+    <div className="bg-neutral-900 text-white font-sans">
       <Header />
       <main className="px-6 md:px-20">
         <AlbumHero />
