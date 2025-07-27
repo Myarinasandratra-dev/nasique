@@ -9,7 +9,7 @@ const platforms = [
 export default function StreamingLinks() {
   return (
     <section className="text-start py-6">
-      <h3 className="text-xl font-semibold mb-4">Stream It Your Way</h3>
+      <h3 className="text-xl font-monumentregular mb-4">Stream It Your Way</h3>
       <div className="flex justify-start gap-4">
         {platforms.map(({ name, icon }) => (
           <button
