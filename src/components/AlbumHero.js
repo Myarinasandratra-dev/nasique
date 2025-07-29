@@ -1,8 +1,7 @@
 import { useState } from "react";
-import img1 from "../assets/pdp.jpg";
 import { IoMdPlay } from "react-icons/io";
 
-export default function AlbumHero() {
+export default function AlbumHero({ album }) {
   const [hovered, setHovered] = useState(false);
 
   const imageStyle = {
@@ -15,8 +14,7 @@ export default function AlbumHero() {
   };
 
   return (
-    <section className="relative h-auto min-h-[500px] w-full">
-      {/* Header placé en bas du DOM = derrière l’image */}
+    <section className="relative min-h-[500px] w-full">
       <header className="absolute top-0 left-0 w-full pt-6 px-6 md:px-20 flex justify-between items-center text-white z-20">
         <h1 className="text-2xl font-bold font-monumentregular">Nasique</h1>
         <nav className="space-x-4">
@@ -29,22 +27,19 @@ export default function AlbumHero() {
         </nav>
       </header>
 
-      {/* Image de fond */}
       <img
-        src={img1}
+        src={album.cover}
         alt="Background"
         className="absolute inset-0 w-full h-full object-cover opacity-40 z-10"
       />
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/100 via-black/70 to-transparent z-20"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-black/70 to-transparent z-20"></div>
 
-      {/* Contenu principal */}
       <div className="relative z-30 h-full flex flex-col md:flex-row items-center px-1 pt-40 gap-8">
         <div className="px-1 md:px-20 flex flex-row gap-10 items-end">
           <img
-            src={img1}
-            alt="Album Cover"
+            src={album.cover}
+            alt={album.title}
             style={imageStyle}
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
@@ -52,14 +47,14 @@ export default function AlbumHero() {
           />
           <div className="text-white text-left">
             <h2 className="text-4xl font-monumentregular uppercase tracking-wide">
-              ANDRO IRAY
+              {album.title}
             </h2>
             <p className="text-lg font-montserrat text-neutral-300 mt-2 mb-4">
               by Nasandratra
             </p>
             <button className="flex items-center gap-2 px-6 py-2 bg-green hover:bg-green-500 text-white rounded">
               <IoMdPlay className="text-xl" />
-              <span className="leading-none">Listen Now</span>
+              <span>Listen Now</span>
             </button>
           </div>
         </div>
